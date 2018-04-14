@@ -43,7 +43,7 @@ export async function bf2csv(bfToken, bfFiatCurrency, bfLocale) {
     coinList.push(position.coin);
   });
 
-  logFunction(`Got your Blockfolio portfolio, which has a fiat value of  ${portfolio.portfolio.portfolioValueFiat}. You're holding the following coins:  ${coinList.join(', ')}.`);
+  logFunction(`Got your Blockfolio portfolio, which has a fiat value of  ${portfolio.portfolio.portfolioValueFiat}. You're holding the following coins:  ${coinList.filter(coin => coin.watchOnly !== true).join(', ')}.`);
 
   /**
    * Step 2: Query all positions individually
@@ -124,8 +124,8 @@ export async function bf2csv(bfToken, bfFiatCurrency, bfLocale) {
    */
   for (let i = 1; i <= maxPosition; i++) {
     if (!allPositions.has(i)) {
-      logFunction(`Consistency check failed: missing positionId ${i} in the position list`, allPositions);
-      return null;
+      // It seems that deleted positions are still returned, to check
+      //logFunction(`Consistency check failed: missing positionId ${i} in the position list`, allPositions);
     }
   }
 
@@ -138,10 +138,12 @@ export async function bf2csv(bfToken, bfFiatCurrency, bfLocale) {
    *   need to look at the previous position. The previous position coin should be equal to the base and the price
    *   should match (this is: quantity * price).
    */
-  for (let i = 2; i <= maxPosition; i++) {
+  let keys = Array.from(allPositions.keys());
+  let prevKey = keys.shift();
+  for (let key of keys) {
     // BTW: Yes we start at index 2, since 1 cannot have a previous one
-    let position = allPositions.get(i);
-    let prevPosition = allPositions.get(i - 1);
+    let position = allPositions.get(key);
+    let prevPosition = allPositions.get(prevKey);
 
     // In the following cases it's a NO GO
     if (!prevPosition
@@ -151,6 +153,7 @@ export async function bf2csv(bfToken, bfFiatCurrency, bfLocale) {
       || prevPosition.watch === 1
       || prevPosition.quantity === 1
     ) {
+      prevKey = key;
       continue;
     }
 
@@ -167,21 +170,23 @@ export async function bf2csv(bfToken, bfFiatCurrency, bfLocale) {
     }
 
     if (score < 5) {
+      prevKey = key;
       continue;
     }
 
     // Yes it's a sync
     position.syncPositionId = prevPosition.positionId;
-    allPositions.delete(i - 1);
-    allPositions.set(i, position);
+    allPositions.delete(prevKey);
+    allPositions.set(key, position);
+    prevKey = key;
   }
 
   /**
    * Step 6: Export to CSV
    */
   let csvRows = [];
-  for (let i of Array.from(allPositions.keys()).sort((a, b) => a - b)) {
-    let position = allPositions.get(i);
+  for (let key of Array.from(allPositions.keys()).sort((a, b) => a - b)) {
+    let position = allPositions.get(key);
     if (position.watch === 1 || position.quantity === 0) {
       continue;
     }
