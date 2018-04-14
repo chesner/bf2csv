@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <script src="dist.js"></script>
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="bf2csv">bf2csv</h1>
+      <div>
+        <p>
+          This little utility will connect to Blockfolio using your Token, and will download all your trades to a CSV format. You can find the sourcecode on <a href="https://github.com/chesner/bf2csv">my Github</a> account <strong>chesner</strong>. You can use the utility in 2 ways: on this github pages website, or using a CLI. Check out the project's README.md on how to run it.
+        </p>
+        <p>&nbsp;</p>
+        <form class="inline">
+          <div class="row">
+            <div class="col-5-8">
+              <label for="bfToken">Blockfolio token</label>
+              <input type="text" id="bfToken" name="token" placeholder="Your Blockfolio token" style="width: 90%" />
+            </div>
+
+            <div class="col-1-8">
+              <label for="bfFiatCurrency">Fiat currency</label>
+              <div class="select" style="width: 90%">
+                <select id="bfFiatCurrency">
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-1-8">
+              <label for="bfLocale">Locale</label>
+              <div class="select" style="width: 90%">
+                <select id="bfLocale">
+                  <option value="en-US">en-US</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-1-8">
+              <label>&nbsp;</label>
+              <button id="btnConvert" style="width: 100%">Convert</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <p>Because of the limitations of HTTP, you need to use a CORS proxy in order for this utility to work. If you Google for <a href="https://www.google.be/search?q=cors+proxy" target="_blank">CORS proxy</a>, you'll find several projects that you can use. If the recommended one doesn't work, you can try <strong>https://crossorigin.me</strong> or <strong>https://cors.io/?u=</strong>.</p>
+
+      <div>
+        <label for="corsPoxy">Cors Proxy</label>
+        <input type="text" id="corsPoxy" name="corsProxy" value="https://cors-anywhere.herokuapp.com/" size="80" />
+      </div>
+
+      <p></p>
+
+      <div>
+        <label for="txtConsole">Output console</label>
+        <textarea id="txtConsole" wrap="off" readonly="readonly" style="min-height: 200px; resize: none; outline: none; overflow: auto"></textarea>
+      </div>
+
+    </div>
+  </body>
+</html>

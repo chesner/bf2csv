@@ -1,0 +1,624 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans+Mono');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+body, h1, h2, h3, h4, h5, h6, section, p, pre, code, input, select, textarea, button, a, span, label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: #2d3239;
+    line-height: 1.42857143;
+    vertical-align: baseline;
+}
+
+body {
+    font-size: 14px;
+}
+
+hr {
+  height:0;
+  border:0;
+  border-top:1px solid #e1e1e8;
+  margin: 15px 0 15px;
+}
+
+/* Text Formatting */
+h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0 10px;
+}
+h1 {
+    font-size: 36px;
+}
+h2 {
+    font-size: 30px;
+}
+h3 {
+    font-size: 24px;
+}
+h4 {
+    font-size: 18px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 12px;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+ul,
+ol {
+    margin-left: 30px;
+    padding-left: 0;
+}
+
+pre {
+    padding: 10px 15px;
+    border: 1px solid #e1e1e8;
+    border-radius: 0;
+    font-family: 'Droid Sans Mono', monospace;
+    font-size: 12px;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Forms */
+label {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+.select,
+textarea {
+    background: #fff;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    line-height: 17px;
+    height: 32px;
+    width: 100%;
+    padding: 6px 8px 6px 8px;
+    margin-bottom: 25px;
+    font-size: inherit;
+}
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=url],
+input[type=password] {
+    -webkit-appearance: none;
+}
+select {
+    cursor: pointer;
+}
+textarea {
+    min-height: 68px;
+    overflow: auto;
+}
+form button {
+    margin-bottom: 25px;
+    height: 32px;
+}
+
+.field-group,
+.field-icons {
+    width: 100%;
+    display: table;
+    position: relative;
+}
+.field-group > input:not(:last-child):not(:focus),
+.field-group > .select:not(:last-child) > select:not(:focus) {
+    border-right-width: 0;
+}
+.field-group > button + input:not(:focus),
+.field-group > button + .select > select:not(:focus),
+.field-group > .field-buttons + input:not(:focus),
+.field-group > .field-buttons + .select > select:not(:focus) {
+    border-left-width: 0;
+}
+.field-group > input,
+.field-group > .select,
+.field-icons > input {
+    display: table-cell;
+}
+.field-group > .select {
+    width: 33.33%;
+    vertical-align: top;
+}
+.field-buttons {
+    display: table-cell;
+    border: none;
+    width: 1%;
+    font-size: 0;
+    line-height: 0px;
+    white-space: nowrap;
+    vertical-align: top;
+}
+.field > .field-feedback,
+.field-group > .field-feedback {
+    position: absolute;
+    font-size: 10px;
+    margin-top: -23px;
+}
+.field > .field-feedback.invalid,
+.field-group > .field-feedback.invalid {
+    color: #a94442;
+}
+/* Chrome v63 workaround. Removes whitespace between left button and text input. */
+.field-group > .field-buttons:first-of-type > button {
+    margin-right: -1px;
+}
+.field-icons > .icon {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+}
+.field-icons > .icon.left ~ input {
+    padding-left: 32px;
+}
+.field-icons > .icon.right ~ input {
+    padding-right: 32px;
+}
+.field-icons > .icon.right {
+    right: 0;
+}
+input:required:invalid, 
+input:focus:invalid {
+    border-color: #a94442;
+    box-shadow: none;
+    color: #a94442;
+}
+
+input::-webkit-input-placeholder { font-style: italic; color: #a9a9a9; }
+input::-moz-placeholder { font-style: italic; color: #a9a9a9; }
+input:-ms-input-placeholder { font-style: italic; color: #a9a9a9; }
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #F7882F;
+    box-shadow: none;
+    outline: none;
+}
+
+/* Buttons */
+button {
+    background: #a9a9a9;
+    color: #fff;
+    padding: 15px 10px 15px 10px;
+    box-sizing: border-box;
+    line-height: 0;
+    vertical-align: top;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    touch-action: manipulation;
+}
+button.primary {
+    background: #6a6969;
+}
+button:focus {
+    outline: none;
+}
+button:hover {
+    cursor: pointer;
+    background-color: #F7882F;
+}
+button::-moz-focus-inner {
+    border: 0;
+}
+i.icon {
+    font-family: 'Material Icons';
+    font-style: normal;
+    vertical-align: bottom;
+    font-feature-settings: 'liga' 1
+}
+button .icon {
+    color: #fff;
+}
+.icon-button,
+.icon-button:hover {
+    background-color: transparent;
+    border: none;
+    padding: 10px 0 10px 0;
+}
+.icon-button .icon {
+    color: #6a6969;
+    padding-right: 0;
+    font-size: 24px;
+    touch-action: manipulation;
+}
+.icon-button:hover .icon {
+    color: #F7882F;
+}
+
+/* Links */
+a {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    touch-action: manipulation;
+}
+a:hover,
+a:hover span {
+    color: #F7882F;
+}
+a:focus {
+    outline: 0;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    text-decoration: none;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+td,
+th {
+    text-align: left;
+    padding: 8px;
+}
+table>thead>tr>th {
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+table>tbody>tr>td,
+table>tbody>tr>th {
+    border-top: 1px solid #ddd;
+    padding: 8px;
+}
+table>tbody>tr:first-child>td,
+table>tbody>tr:first-child>th {
+    border-top: 0;
+}
+
+/* Custom checkbox */
+.checkbox {
+    height: 32px;
+    width: 32px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    cursor: pointer;
+    vertical-align: top;
+    touch-action: manipulation;
+}
+.checkbox input[type=checkbox] {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+.checkbox input[type=checkbox]:checked + span:before {
+    content: '\E5CA';
+    font-family: 'Material Icons';
+    font-size: 22px;
+    display: block;
+    position: relative;
+    margin-top: -36px;
+    margin-left: 4px;
+    z-index: -1;
+}
+
+/* Custom select dropdown */
+.select {
+    padding: 0;
+    margin-bottom: 25px;
+    border: none;
+    position: relative;
+    touch-action: manipulation;
+}
+.select:after {
+    content: '\E313';
+    font-family: 'Material Icons';
+    font-size: 22px;
+    color: #2d3239;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 6px 3px;
+    margin: 2px;
+    background-color: #FFF;
+    pointer-events: none;
+}
+select {
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -moz-padding-start: 5px;
+}
+select:-moz-focusring { 
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown button:focus {
+    background-color: #F7882F;
+}
+.dropdown-menu.show {
+    display: block;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    min-width: 160px;
+    padding: -5px;
+    margin: 5px 0 0 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.dropdown-menu a {
+    text-decoration: none;
+    display: block;
+    padding: 7px 10px 7px 10px;
+}
+.dropdown-menu a:hover {
+    background-color: #F7882F;
+    color: #fff
+}
+.dropdown-menu ul {
+    position: absolute;
+    list-style: none;
+    margin: 0;
+}
+
+/* Navbar */
+.navbar {
+    border-bottom: 1px solid #e1e1e8;
+    margin-bottom: 10px;
+    position: relative;
+}
+.nav {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    line-height: 20px;
+}
+.nav-collapse {
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height .8s cubic-bezier(0, 1, 0, 1) -.1s;
+}
+.nav li {
+    padding: 5px 10px 8px 10px;
+}
+.nav li a {
+    text-decoration: none;
+    font-weight: bold;
+}
+.nav li a.active {
+    color: #F7882F;
+}
+.navbar > .dropdown {
+    right: 5px;
+    top: 7px;
+    position: absolute;
+}
+.navbar > .dropdown:focus ~ .nav-collapse,
+.navbar > .nav-collapse.show {
+    max-height: 9999px;
+    transition-timing-function: cubic-bezier(0.5, 0, 1, 0); 
+    transition-delay: 0s;
+}
+
+/* Tabs */
+.tabs > input {
+    display: none;
+}
+.tabs > label {
+    display: inline-block;
+    margin: 1px 0 -1px 0;
+    padding: 10px 25px;
+    text-align: center;
+    color: #a9a9a9;
+    border: 1px solid transparent;
+}
+.tabs > label:hover {
+    color: #F7882F;
+    cursor: pointer;
+}
+.tabs > input:checked + label {
+    color: #2d3239;  
+    border: 1px solid #e1e1e8;
+    border-top: 2px solid #F7882F;
+    border-bottom: 1px solid #fff;
+}
+.tab {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #e1e1e8;
+}
+#tab1:checked ~ #tab1content,
+#tab2:checked ~ #tab2content,
+#tab3:checked ~ #tab3content,
+#tab4:checked ~ #tab4content,
+#tab5:checked ~ #tab5content,
+#tab6:checked ~ #tab6content,
+#tab7:checked ~ #tab7content,
+#tab8:checked ~ #tab8content,
+#tab9:checked ~ #tab9content,
+#tab10:checked ~ #tab10content {
+    display: block;
+}
+
+/* Alerts Banner */
+.alert {
+    padding: 10px 20px;
+    margin-bottom: 5px;
+}
+.alert-info {
+    background-color: #dff0d8;
+    border-color: #d0e9c6;
+    color: #3c763d;
+}
+.alert-error {
+    background-color: #f2dede;
+    border-color: #ebcccc;
+    color: #a94442;
+}
+
+/* Grid Layout */
+.row:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* Utils */
+.container {
+    margin: 0 10px;
+    margin-bottom: 30px;
+}
+.mobile-hide {
+    display: none;
+}
+
+/* Desktop style overrides */
+@media (min-width: 1200px) {
+    /* Stacked Form */
+    form .field-group .select {
+        width: 20%;
+    }
+
+    /* Inline Form */
+    form.inline .field,
+    form.inline label,
+    form.inline input,
+    form.inline .select,
+    form.inline .checkbox,
+    form.inline button,
+    form.inline .field-group,
+    form.inline .field-icons {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    form.inline .field-group input,
+    form.inline .field-buttons button,
+    form.inline .field-group .field-icons {
+        margin-right: 0;
+    }
+    form.inline .field-group {
+        display: inline-table;
+    }
+    form.inline .field,
+    form.inline input,
+    form.inline .select,
+    form.inline .field-group,
+    form.inline .field-icons {
+        width: 200px;
+    }
+    form.inline .field-group input,
+    form.inline .field-group .select,
+    form.inline .field-group .field-icons {
+        display: table-cell;
+        width: 100%;
+    }
+    form.inline .field-group .field-icons input {
+        display: inline-block;
+    }
+    form.inline .field-group .select {
+        width: 33.33%;
+    }
+
+    /* Navbar */
+    .navbar {
+        height: 40px;
+    }
+    .navbar .dropdown {
+        display: none;
+    }
+    .nav-collapse {
+        max-height: 9999px;
+    }
+    .nav {
+        float: left;
+    }
+    .nav li {
+        display: inline-block;
+        padding: 10px;
+    }
+    .nav-right {
+        float: right!important;
+        right: 0;
+        left: auto;
+    }
+    
+    /* Grid Layout */
+    [class*='col-'] {
+        float: left;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .col-1-8 {
+        width: 12.5%;
+    }
+    .col-2-8 {
+        width: 25%;
+    }
+    .col-3-8 {
+        width: 37.5%;
+    }
+    .col-4-8 {
+        width: 50%;
+    }
+    .col-5-8 {
+        width: 62.5%;
+    }
+    .col-6-8 {
+        width: 75%;
+    }
+    .col-7-8 {
+        width: 87.5%;
+    }
+    .col-8-8 {
+        width: 100%;
+    }
+    
+    /* Utils */  
+    .container {
+        width: 1170px;
+        margin-left: auto;
+        margin-right: auto;
+    }    
+    .mobile-hide {
+        display: block;
+    }
+    th.mobile-hide,
+    td.mobile-hide {
+        display: table-cell;
+    }
+    tr.mobile-hide {
+        display: table-row;
+    }
+}
