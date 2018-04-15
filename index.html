@@ -9,10 +9,10 @@
   <body>
     <div class="container">
       <h1 id="bf2csv">bf2csv</h1>
+      <p>
+        This little utility will connect to Blockfolio using your Token, and will download all your trades to a CSV format. You can find the sourcecode on <a href="https://github.com/chesner/bf2csv">my Github</a> account <strong>chesner</strong>. You can use the utility in 2 ways: on this github pages website, or using a CLI. Check out the project's README.md on how to run it.
+      </p>
       <div>
-        <p>
-          This little utility will connect to Blockfolio using your Token, and will download all your trades to a CSV format. You can find the sourcecode on <a href="https://github.com/chesner/bf2csv">my Github</a> account <strong>chesner</strong>. You can use the utility in 2 ways: on this github pages website, or using a CLI. Check out the project's README.md on how to run it.
-        </p>
         <p>&nbsp;</p>
         <form class="inline">
           <div class="row">
@@ -62,6 +62,18 @@
         <textarea id="txtConsole" wrap="off" readonly="readonly" style="min-height: 200px; resize: none; outline: none; overflow: auto"></textarea>
       </div>
 
+      <h2>About</h2>
+      <p>
+        I’ve created this tool because I wanted to move my BF data to Delta - but BF doesn’t support import/export (yet?), while this all major competitors are doing so. <a href="https://getdelta.io">Delta</a> offers it for free, while <a href="https://coin-stats.com">Coin-Stats</a> has it as a paid only feature.<br />
+        This is why I tested it and mainly focussed on the Delta format. You need to install their desktop app, but it works like a charm!<br />
+        A user reported me that he needed to edit the CSV a bit for his <strong>fiat</strong> deposits &amp; withdrawals because BF doesn't allow you to specify an exchange when you do. Just look for rows with 'DEPOSIT' and 'WITHDRAW' and fill in the exchange where you deposited to or withdrew from.<br />
+        Note: I noticed that <i>Deduct from xxx Holdings</i> is pretty broken in BF, when you edit the transaction the according deduct transaction isn't handled pretty well, that's why there's a scoring algorithm that tries to match them, even if you did edits afterwards. I haven't seen these bugs on Delta, since they provide this in their export format natively.<br />
+      </p>
+
+      <h2>Support</h2>
+      <p>
+        Please report all bugs, issues, ... on the Github project page (<a href="https://github.com/chesner/bf2csv/">https://github.com/chesner/bf2csv/</a>).
+      </p>
     </div>
   </body>
 </html>

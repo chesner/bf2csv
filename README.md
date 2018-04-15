@@ -2,6 +2,16 @@
 
 This little utility will connect to Blockfolio using your Token, and will download all your trades to a CSV format.
 
+## Intro
+
+I’ve created this tool because I wanted to move my BF data to Delta - but BF doesn’t support import/export (yet?), while this all major competitors are doing so. [Delta](https://getdelta.io) offers it for free, while [Coin-Stats](https://coin-stats.com) has it as a paid only feature.
+
+This is why I tested it and mainly focussed on the Delta format. You need to install their desktop app, but it works like a charm!
+
+A user reported me that he needed to edit the CSV a bit for his ***fiat*** deposits & withdrawals because BF doesn't allow you to specify an exchange when you do. Just look for rows with 'DEPOSIT' and 'WITHDRAW' and fill in the exchange where you deposited to or withdrew from.
+
+Note: I noticed that _Deduct from xxx Holdings_ is pretty broken in BF, when you edit the transaction the according deduct transaction isn't handled pretty well, that's why there's a scoring algorithm that tries to match them, even if you did edits afterwards. I haven't seen these bugs on Delta, since they provide this in their export format natively.
+
 ## Getting Started
 
 You can use the utility in 2 ways: on the [bf2csv github page](https://chesner.github.io/bf2csv/), or using a CLI.
